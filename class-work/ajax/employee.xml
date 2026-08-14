@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employee>
+  <name>Jane Doe</name>
+  <department>Quant</department>
+  <position>Quant Engineer</position>
+  <email>jane.doe@company.com</email>
+</employee>

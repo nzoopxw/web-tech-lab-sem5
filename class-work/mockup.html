@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Movie List</title>
+</head>
+<body>
+  <h1>Movie List</h1>
+
+  <input id="movieInput" type="text" placeholder="Enter a movie name" />
+  <button onclick="addMovie()">ADD MOVIE</button>
+  <button onclick="displayMovies()">DISPLAY MOVIES</button>
+
+  <ul id="movieList"></ul>
+
+<script>
+  // This array is the "list" that holds the movies
+  const movies = [];
+
+  function addMovie() {
+    const input = document.getElementById("movieInput");
+    const name = input.value.trim();
+    if (name === "") return;
+    movies.push(name);   // add to the list
+    input.value = "";    // clear the textbox
+  }
+
+  function displayMovies() {
+    const list = document.getElementById("movieList");
+    list.innerHTML = "";
+    for (let i = 0; i < movies.length; i++) {
+      const li = document.createElement("li");
+      li.textContent = movies[i];
+      list.appendChild(li);
+    }
+  }
+</script>
+</body>
+</html>

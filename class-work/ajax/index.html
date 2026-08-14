@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX XML Loader</title>
+</head>
+<body>
+  <h2>Employee Details</h2>
+  <button type="button" onclick="loadData()">Load Data</button>
+  <div id="demo"></div>
+
+  <script>
+    function loadData() {
+      const xhttp = new XMLHttpRequest();
+
+      xhttp.onload = function() {
+        const xml = this.responseXML;
+        const name = xml.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+        const dept = xml.getElementsByTagName("department")[0].childNodes[0].nodeValue;
+        const pos = xml.getElementsByTagName("position")[0].childNodes[0].nodeValue;
+        const email = xml.getElementsByTagName("email")[0].childNodes[0].nodeValue;
+
+        document.getElementById("demo").innerHTML =
+          "Name: " + name + "<br>" +
+          "Department: " + dept + "<br>" +
+          "Position: " + pos + "<br>" +
+          "Email: " + email;
+      };
+
+      xhttp.open("GET", "employee.xml", true);
+      xhttp.send();
+    }
+  </script>
+</body>
+</html>

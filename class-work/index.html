@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pass/Fail Calculator</title>
+</head>
+<body>
+    <input id="s1" type="number" placeholder="Enter Subject 1 marks">
+    <input id="s2" type="number" placeholder="Enter Subject 2 marks">
+    <input id="s3" type="number" placeholder="Enter Subject 3 marks">
+    <input id="s4" type="number" placeholder="Enter Subject 4 marks">
+    <input id="s5" type="number" placeholder="Enter Subject 5 marks">
+    <p id="result"></p>
+    <button onclick="calculateres()"></button>
+    <script>
+        function calculateres(){
+            let total;
+            for(let i=0; i<5; i++){
+                total += document.getElementById("s"+i).value;
+            }
+            let avg = total/5;
+            if(avg>=40){
+                document.getElementById("result").innerText = "PASS";
+            }
+            else{
+                document.getElementById("result").innerText = "FAIL";
+            }
+        }
+
+
+    </script>
+    
+</body>
+</html>
